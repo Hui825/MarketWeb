@@ -1,0 +1,25 @@
+#header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 10000;
+    border-right: 1px solid var(black);
+    font-family: "SUITE";
+}
+#main {
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+#footer {
+    text-align: center;
+    padding: 20px;
+    margin-left: 260px;
+    color: #ffffff;
+    font-size: 1rem;
+}

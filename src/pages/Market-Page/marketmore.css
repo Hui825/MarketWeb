@@ -1,0 +1,32 @@
+.main {
+
+    display:block;
+    background-color: blueviolet;
+
+}
+
+.fesheader__text {
+
+    
+    font-size: 80px;
+    background-color: aquamarine;
+}
+
+.fesphoto__inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+    background-color: coral;
+
+}
+
+.texts {
+    display: flex;
+    flex-direction: column; /* 텍스트 요소들을 세로로 정렬 */
+    justify-content: center; /* 세로 방향으로 중앙 정렬 */
+}
+
+.text1, .text2, .text3 {
+    margin: 5px 0; /* 텍스트 사이의 간격 */
+}
