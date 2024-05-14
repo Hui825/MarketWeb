@@ -1,71 +1,117 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Main from '../../components/page/Main.jsx';
-import './marketmore.jsx';
 import { Link } from 'react-router-dom';
-
-
-
 import './market.css';
+
+import park01 from '../../assets/ico/parkingicon01.png'; 
+import park02 from '../../assets/ico/parkingicon02.png'; 
+import rest01 from '../../assets/ico/restroomicon01.png'; 
+import rest02 from '../../assets/ico/restroomicon02.png'; 
+
+//여기 부분 상품권 아이콘 만들기
+import voucher01 from '../../assets/ico/parkingicon01.png'; 
+import voucher02 from '../../assets/ico/parkingicon01.png'; 
 
 const databaseURL = 'https://python-db-practice-96823-default-rtdb.firebaseio.com/';
 
+const Market = () => {
+    const [markets, setMarkets] = useState([]);
+    const [filter, setFilter] = useState('');
+    const [selectedRegion, setSelectedRegion] = useState('');
+    const [selectedCity, setSelectedCity] = useState('');
 
+    useEffect(() => {
+        fetch(`${databaseURL}/전통시장데이터.json`)
+            .then(res => res.json())
+            .then(data => {
+                const marketArray = Object.keys(data).map(key => ({
+                    id: key,
+                    ...data[key]
+                }));
+                setMarkets(marketArray);
+            });
+    }, []);
 
-class Festival extends React.Component {
+    const handleFilterChange = (event) => {
+        setFilter(event.target.value);
+    };
 
-    constructor() {
-        super();
-        this.state = {
-            words: {}
-        };
-           
-        
-    }
-    
-    
+    const handleRegionChange = (event) => {
+        setSelectedRegion(event.target.value);
+        setSelectedCity(''); // 상위 카테고리가 변경될 때 하위 카테고리를 초기화
+    };
 
-    _get() {
-        fetch(`${databaseURL}/전통시장데이터.json`).then(res => {
-            if(res.status != 200 ){
-                throw new Error(res.statusText);
+    const handleCityChange = (event) => {
+        setSelectedCity(event.target.value);
+    };
+
+    const filteredMarkets = markets.filter(market =>
+        (market.시장명 && market.시장명.includes(filter)) ||
+        (market.소재지도로명주소 && market.소재지도로명주소.includes(filter))
+    );
+
+    const categorizedMarkets = filteredMarkets.filter(market => {
+        if (selectedRegion && selectedRegion !== 'All') {
+            if (!market.소재지도로명주소.includes(selectedRegion)) {
+                return false;
             }
-            return res.json();
-        }).then(words => this.setState({words: words}));
-    }
-    shouldComponentUpdate(nextProps, nextState) {
-        return nextState.words != this.state.words;
-    }
-    componentDidMount() {
-        this._get();
-    }
-    render() {
-       return ( 
+        }
+        if (selectedCity && selectedCity !== 'All') {
+            if (!market.소재지도로명주소.includes(selectedCity)) {
+                return false;
+            }
+        }
+        return true;
+    });
 
-            <Main>
-                <div>
-                    {Object.keys(this.state.words).map(id => {
-                    const word = this.state.words[id];
-                    return ( 
-                        <div className="section_fes" key={id}>
-                            
-                            <Link to={`/market/${id}`} style={{ textDecoration: 'none' }}>
-                                <div className="headerText">{word.시장명}</div>
-                                <div className="innerText">더보기</div>
-                                <div className="InnerText">{word.소재지도로명주소}</div>
-                                <div className="section__data">{word.소재지지번주소}</div>
-                                <div className="section__data">{word.주차장보유여부}</div>
-                                <div className="section__data">{word.공중화장실보유여부}</div>
-                                <div className="section__data">{word.사용가능사품권}</div>
-                            </Link>
-                        </div>
-                    ); 
-        })}
-    
+    const citiesByRegion = {
+        '강원도': ['춘천', '강릉', '원주', '홍천'],
+        // 다른 지역에 대해서도 여기에 도시들을 추가할 수 있습니다.
+        // 예시로 추가된 강원도의 도시들
+    };
+
+    return (
+        <Main>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Search markets..."
+                    value={filter}
+                    onChange={handleFilterChange}
+                />
+                <select value={selectedRegion} onChange={handleRegionChange}>
+                    <option value="All">Select Region</option>
+                    <option value="강원도">강원도</option>
+                    {/* 다른 상위 카테고리를 여기에 추가할 수 있습니다. */}
+                </select>
+                {selectedRegion && citiesByRegion[selectedRegion] && (
+                    <select value={selectedCity} onChange={handleCityChange}>
+                        <option value="All">Select City</option>
+                        {citiesByRegion[selectedRegion].map(city => (
+                            <option key={city} value={city}>{city}</option>
+                        ))}
+                    </select>
+                )}
+                {categorizedMarkets.map(market => (
+                    <div className="section_fes" key={market.id}>
+                        <Link to={`/market/${market.id}`} style={{ textDecoration: 'none' }}>
+                            <div className="headerText">{market.시장명}</div>
+                            <div className="innerText">더보기</div>
+                            <div className="InnerText">{market.소재지도로명주소}</div>
+                            <div className="section__data">{market.소재지지번주소}</div>
+                            <div className="section__data">
+                                <img src={market.주차장보유여부 === 'Y' ? park01 : park02} alt="Parking Availability" />
+                                <img src={market.공중화장실보유여부 === 'Y' ? rest01 : rest02} alt="Toilet Availability" />
+                            </div>
+                            <div className="section__data">
+                                <img src={market.사용가능상품권 === '온누리상품권' ? voucher01 : voucher02} alt="Voucher Availability" />
+                            </div>
+                        </Link>
+                    </div>
+                ))}
             </div>
+        </Main>
+    );
+};
 
-            </Main>
-        )
-    }
-}
-
-export default Festival;
+export default Market;

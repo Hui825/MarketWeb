@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Main from './Main';
+import searchKeyword from './Search.js';
 
 const SearchResults = () => {
     const location = useLocation();

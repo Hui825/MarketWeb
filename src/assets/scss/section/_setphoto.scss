@@ -1,5 +1,30 @@
-.Main-img {
-    height : 20vmin;
-    width : 20px;
-    pointer-events: none;
-}
+#card {
+    .card__inner {
+      margin-bottom: 20px;
+    }
+  
+    .card__box {
+      .cardItem {
+        text-align: center;
+  
+        figure {
+          margin: 0;
+  
+          .main-img {
+            max-width: 100%;
+            height: auto;
+          }
+        }
+      }
+    }
+  
+    .large-slider {
+      margin-top: 40px;
+  
+      .large-img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }

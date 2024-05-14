@@ -12,7 +12,7 @@ const Website = React.lazy(() => import('./pages/Mypage'));
 
 const Festival = React.lazy(() => import('./pages/Festival-Page/festival.js'));
 
-const Market = React.lazy(() => import('./pages/Market Page/market.js'));
+const Market = React.lazy(() => import('./pages/Market-Page/market.js'));
 const RegistMenu = React.lazy(() => import('./pages/Register/RegistMenu'));
 const Search = React.lazy(() => import('./pages/Search/Search.jsx'));
 const SearchResult = React.lazy(() => import('./components/page/SearchResult.js'));
@@ -30,6 +30,7 @@ const App = () => {
         <BrowserRouter>
             <Suspense fallback={<Main />}>
                 <Routes>
+                    <Route path='/capstone' element={<Home />} />
                     <Route path='/' element={<Home />} />
                     <Route path="/website" element={<Website />} />
                     <Route path="/Festival" element={<Festival />} />
