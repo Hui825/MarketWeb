@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcapstone_market=self.webpackChunkcapstone_market||[]).push([[466],{1466:function(e,t,n){n.r(t);var c=n(1900),r=(n(2483),n(6723));t.default=function(){return(0,r.jsx)(c.A,{title:"\ub9c8\uc774\ud398\uc774\uc9c0",description:"\ub9c8\uc774\ud398\uc774\uc9c01",children:(0,r.jsx)("h2",{children:"\u25c6 \ub9c8\uc774\ud398\uc774\uc9c0"})})}}}]);
+//# sourceMappingURL=466.261d3ed9.chunk.js.map
