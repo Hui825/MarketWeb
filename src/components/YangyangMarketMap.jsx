@@ -44,7 +44,7 @@ const YangyangMarketMap = () => {
 
         const loadScript = () => {
             const script = document.createElement('script');
-            script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=d88ca8f1c2916960151011d64a2d5aa3&autoload=false`;
+            script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY&autoload=false`;
             script.async = true;
             script.onload = () => {
                 if (window.kakao && window.kakao.maps) {
