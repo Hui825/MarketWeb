@@ -8,7 +8,8 @@ const databaseURL = 'https://python-db-practice-96823-default-rtdb.firebaseio.co
 const Festival = () => {
     const [festivals, setFestivals] = useState([]);
     const [filter, setFilter] = useState('');
-    const [category, setCategory] = useState('');
+    const [selectedMonth, setSelectedMonth] = useState('');
+    const [selectedSpecificMonth, setSelectedSpecificMonth] = useState('');
 
     useEffect(() => {
         fetch(`${databaseURL}/지역축제정보데이터.json`)
@@ -26,8 +27,13 @@ const Festival = () => {
         setFilter(event.target.value);
     };
 
-    const handleCategoryChange = (event) => {
-        setCategory(event.target.value);
+    const handleMonthChange = (event) => {
+        setSelectedMonth(event.target.value);
+        setSelectedSpecificMonth(''); // 상위 카테고리가 변경될 때 하위 카테고리를 초기화
+    };
+
+    const handleSpecificMonthChange = (event) => {
+        setSelectedSpecificMonth(event.target.value);
     };
 
     const filteredFestivals = festivals.filter(festival =>
@@ -35,76 +41,74 @@ const Festival = () => {
         (festival.개최장소 && festival.개최장소.includes(filter))
     );
 
-    const categorizedFestivals = category
-        ? filteredFestivals.filter(festival => {
-            if (category === '1월') {
+    const categorizedFestivals = filteredFestivals.filter(festival => {
+        if (selectedSpecificMonth) {
+            if (selectedSpecificMonth === '1월') {
                 return festival.개최기간.includes('01') || festival.개최기간.includes('1월중');
             }
-            if (category === '2월') {
+            if (selectedSpecificMonth === '2월') {
                 return festival.개최기간.includes('02') || festival.개최기간.includes('2월중');
             }
-            if (category === '3월') {
+            if (selectedSpecificMonth === '3월') {
                 return festival.개최기간.includes('03') || festival.개최기간.includes('3월중');
             }
-            if (category === '4월') {
+            if (selectedSpecificMonth === '4월') {
                 return festival.개최기간.includes('04') || festival.개최기간.includes('4월중');
             }
-            if (category === '5월') {
+            if (selectedSpecificMonth === '5월') {
                 return festival.개최기간.includes('05') || festival.개최기간.includes('5월중');
             }
-            if (category === '6월') {
+            if (selectedSpecificMonth === '6월') {
                 return festival.개최기간.includes('06') || festival.개최기간.includes('6월중');
             }
-            if (category === '7월') {
+            if (selectedSpecificMonth === '7월') {
                 return festival.개최기간.includes('07') || festival.개최기간.includes('7월중');
             }
-            if (category === '8월') {
+            if (selectedSpecificMonth === '8월') {
                 return festival.개최기간.includes('08') || festival.개최기간.includes('8월중');
             }
-            if (category === '9월') {
+            if (selectedSpecificMonth === '9월') {
                 return festival.개최기간.includes('09') || festival.개최기간.includes('9월중');
             }
-            if (category === '10월') {
-                return festival.개최기간.includes('10') || festival.개최기간.includes('810월중');
+            if (selectedSpecificMonth === '10월') {
+                return festival.개최기간.includes('10') || festival.개최기간.includes('10월중');
             }
-            if (category === '11월') {
+            if (selectedSpecificMonth === '11월') {
                 return festival.개최기간.includes('11') || festival.개최기간.includes('11월중');
             }
-            if (category === '12월') {
+            if (selectedSpecificMonth === '12월') {
                 return festival.개최기간.includes('12') || festival.개최기간.includes('12월중');
             }
-
-            // 다른 카테고리에 대한 조건을 추가할 수 있습니다.
             return true;
-        })
-        : filteredFestivals;
+        }
+        return true;
+    });
+
+    const months = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
 
     return (
         <Main>
-            <div>
+            <div className="filters-container">
                 <input
                     type="text"
                     placeholder="Search festivals..."
                     value={filter}
                     onChange={handleFilterChange}
                 />
-                <select value={category} onChange={handleCategoryChange}>
-                    <option value="">Select Category</option>
-                    <option value="1월">1월</option>
-                    <option value="2월">2월</option>
-                    <option value="3월">3월</option>
-                    <option value="4월">4월</option>
-                    <option value="5월">5월</option>
-                    <option value="6월">6월</option>
-                    <option value="7월">7월</option>
-                    <option value="8월">8월</option>
-                    <option value="9월">9월</option>
-                    <option value="10월">10월</option>
-                    <option value="11월">11월</option>
-                    <option value="12월">12월</option>
-
-                    {/* 다른 카테고리를 여기에 추가할 수 있습니다. */}
+                <select value={selectedMonth} onChange={handleMonthChange}>
+                    <option value="">Select Month</option>
+                    <option value="MONTH">MONTH</option>
                 </select>
+                {selectedMonth === 'MONTH' && (
+                    <select value={selectedSpecificMonth} onChange={handleSpecificMonthChange}>
+                        <option value="">Select Specific Month</option>
+                        {months.map(month => (
+                            <option key={month} value={month}>{month}</option>
+                        ))}
+                    </select>
+                )}
+            </div>
+            <div className="market-list">
                 {categorizedFestivals.map(festival => (
                     <div className="section_fes" key={festival.id}>
                         <Link to={`/festival/${festival.id}`} style={{ textDecoration: 'none' }}>

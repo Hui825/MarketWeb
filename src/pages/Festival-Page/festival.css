@@ -1,83 +1,32 @@
-.section_inner {
-    display: inline-block;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, minmax(200px, auto));
+.filters-container {
+    display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    margin-top: 300px;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
 }
 
-.headerText {
-    font-size:25px;
-    background-color: rgb(250, 201, 111);
-    font-style: normal;
-    text-align: center;
+.filters-container input,
+.filters-container select {
+    margin: 0 10px;
 }
 
-
-.Text {
-    font-size: 18px;
-    text-align: right;
-    background-color: rgb(250, 201, 111);
-}
-
-
-.InnerText {
-    background-color: rgb(160, 198, 255);
-    font-size:20px;
-    font-style: normal;
-    text-align: center;
+.market-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .section_fes {
-    display: inline-block;
-    background-color:rgb(129, 130, 133);
-    inline-size: 480px;
-    justify-content: space-between;
-    margin-inline-start: 75px;
-    margin-inline-end: 30px;
-    margin-bottom: 30px;
+    flex: 1 1 calc(33.333% - 20px); /* 3개씩 출력되도록 설정 */
+    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
-.header_fes {
-    display: inline-block;
-    position: left;
-    display: flex;
-    align-items: center;
-    z-index: 3;
-    background: #fff;
-    height: 20px;
-    justify-content: center;
-    margin-right: 28px;
-}
-
+.headerText,
+.innerText,
+.InnerText,
 .section__data {
-
-    display: inline-block;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 40px;
-    margin-left: 50px;
-    margin-right: 20px;
-    
+    /* 스타일 추가 가능 */
 }
-
-.section__data2 {
-
-    display: inline-block;
-    justify-content: space-between;
-    align-items: center;
-    background-color:aquamarine;
-}
-
-.title {
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 60px;
-    background-size: cover;
-    background-color: rgb(206, 206, 206);
-    border-radius: 60px;
-}
-

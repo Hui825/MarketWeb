@@ -7,10 +7,8 @@ import park01 from '../../assets/ico/parkingicon01.png';
 import park02 from '../../assets/ico/parkingicon02.png'; 
 import rest01 from '../../assets/ico/restroomicon01.png'; 
 import rest02 from '../../assets/ico/restroomicon02.png'; 
-
-//여기 부분 상품권 아이콘 만들기
-import voucher01 from '../../assets/ico/parkingicon01.png'; 
-import voucher02 from '../../assets/ico/parkingicon01.png'; 
+import voucher01 from '../../assets/ico/온누리.png'; 
+import voucher02 from '../../assets/ico/상품권없음.png'; 
 
 const databaseURL = 'https://python-db-practice-96823-default-rtdb.firebaseio.com/';
 
@@ -67,12 +65,11 @@ const Market = () => {
     const citiesByRegion = {
         '강원도': ['춘천', '강릉', '원주', '홍천'],
         // 다른 지역에 대해서도 여기에 도시들을 추가할 수 있습니다.
-        // 예시로 추가된 강원도의 도시들
     };
 
     return (
         <Main>
-            <div>
+            <div className="filters-container">
                 <input
                     type="text"
                     placeholder="Search markets..."
@@ -92,6 +89,8 @@ const Market = () => {
                         ))}
                     </select>
                 )}
+            </div>
+            <div className="market-list">
                 {categorizedMarkets.map(market => (
                     <div className="section_fes" key={market.id}>
                         <Link to={`/market/${market.id}`} style={{ textDecoration: 'none' }}>

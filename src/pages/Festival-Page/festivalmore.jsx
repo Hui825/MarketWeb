@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import "./festivalmore.css";
 import Main from "../../components/page/Main";
-import img1 from "../../assets/images/_menu01.png"
-
+import img1 from "../../assets/images/_menu01.png";
 
 const FestivalMore = () => {
   const { index } = useParams();
@@ -31,30 +30,29 @@ const FestivalMore = () => {
 
   return (
     <Main>
-      <div>
-        <h1>축제 상세 페이지</h1>
-        
-        {festival ? (
-          <div className='main'>
-            <div className='fesheader__text'>{festival.축제명}</div>
-            <p>Festival ID: {index}</p>
-            <div className='fesphoto__inner'><img src= {img1}></img>
-              <div className='texts'>
-                <div className='text1'>개최 기간: {festival.개최기간}</div>
-                <div className='text2'>축제 유형: {festival.축제유형}</div>
-                <div className='text3'>오시는 길</div>
+      <div className="main-container">
+        <div className="main-content">
+          <h1>축제 상세 페이지</h1>
+          {festival ? (
+            <div>
+              <div className="fesheader__text">{festival.축제명}</div>
+              <p>Festival ID: {index}</p>
+              <div className="fesphoto__inner">
+                <img src={img1} alt="Festival" />
+                <div className="texts">
+                  <div className="text1">개최 기간: {festival.개최기간}</div>
+                  <div className="text2">축제 유형: {festival.축제유형}</div>
+                  <div className="text3">오시는 길</div>
+                </div>
               </div>
             </div>
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
       </div>
-        ) : (
-          <p>Loading...</p>
-         )}
-      </div>
-     
     </Main>
   );
 };
-
-
 
 export default FestivalMore;
