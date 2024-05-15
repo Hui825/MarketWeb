@@ -11,6 +11,7 @@
     "bootstrap": "^5.3.3",
     "fast-html-parser": "^1.0.1",
     "firebase": "^10.11.1",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^1.3.0",
@@ -33,12 +34,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "homepage": "https://hui825.github.io/MarketWeb/",
   "eslintConfig": {
@@ -70,5 +71,5 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4"
   },
-  "proxy": "https://python-db-practice-96823-default-rtdb.firebaseio.com/.json"
+  "proxy": "https://python-db-practice-96823-default-rtdb.firebaseio.com"
 }

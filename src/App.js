@@ -1,4 +1,4 @@
-import React, {Suspense, lazy, useState} from 'react'
+import React, {Suspense} from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './components/page/Main';
 
@@ -10,11 +10,10 @@ import Main from './components/page/Main';
 const Home = React.lazy(() => import('./pages/Home'));
 const Website = React.lazy(() => import('./pages/Mypage'));
 
-const Festival = React.lazy(() => import('./pages/Festival-Page/festival.js'));
+const Festival = React.lazy(() => import('./pages/Festival-Page/festival'));
 
-const Market = React.lazy(() => import('./pages/Market-Page/market.js'));
+const Market = React.lazy(() => import('./pages/Market-Page/market'));
 const RegistMenu = React.lazy(() => import('./pages/Register/RegistMenu'));
-const Search = React.lazy(() => import('./pages/Search/Search.jsx'));
 const SearchResult = React.lazy(() => import('./components/page/SearchResult.js'));
 const Not = React.lazy(() => import('./pages/ETC/Not'));
 const LoginForm = React.lazy(() => import('./pages/Login Page/LoginForm'));
@@ -30,7 +29,7 @@ const App = () => {
         <BrowserRouter>
             <Suspense fallback={<Main />}>
                 <Routes>
-                    <Route path='/capstone' element={<Home />} />
+                    <Route path='/MarketWeb' element={<Home />} />
                     <Route path='/' element={<Home />} />
                     <Route path="/website" element={<Website />} />
                     <Route path="/Festival" element={<Festival />} />

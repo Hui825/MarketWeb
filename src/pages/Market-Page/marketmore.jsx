@@ -36,9 +36,9 @@ const MarketMore = () => {
           <h1>시장 상세 페이지</h1>
           {market ? (
             <div>
-              <div className='fesheader__text'>{market.시장명}</div>
+              <div className='mkheader__text'>{market.시장명}</div>
               <p>Market ID: {index}</p>
-              <div className='fesphoto__inner'>
+              <div className='mkphoto__inner'>
                 <img src={img1} alt="Market" />
                 <div className='texts'>
                   <div className='text1'>소재지 도로명 주소: {market.소재지도로명주소}</div>

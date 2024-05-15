@@ -3,7 +3,7 @@ import Main from '../../components/page/Main.jsx';
 import { Link } from 'react-router-dom';
 import './festival.css';
 
-const databaseURL = 'https://python-db-practice-96823-default-rtdb.firebaseio.com/';
+const databaseURL = 'https://python-db-practice-96823-default-rtdb.firebaseio.com';
 
 const Festival = () => {
     const [festivals, setFestivals] = useState([]);
@@ -12,15 +12,25 @@ const Festival = () => {
     const [selectedSpecificMonth, setSelectedSpecificMonth] = useState('');
 
     useEffect(() => {
-        fetch(`${databaseURL}/지역축제정보데이터.json`)
-            .then(res => res.json())
-            .then(data => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`${databaseURL}/지역축제정보데이터.json`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
                 const festivalArray = Object.keys(data).map(key => ({
                     id: key,
                     ...data[key]
                 }));
                 setFestivals(festivalArray);
-            });
+                console.log('Fetched data:', festivalArray); // 디버깅을 위해 추가
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
     }, []);
 
     const handleFilterChange = (event) => {
@@ -40,6 +50,8 @@ const Festival = () => {
         (festival.축제명 && festival.축제명.includes(filter)) ||
         (festival.개최장소 && festival.개최장소.includes(filter))
     );
+
+    console.log('Filtered festivals:', filteredFestivals); // 디버깅을 위해 추가
 
     const categorizedFestivals = filteredFestivals.filter(festival => {
         if (selectedSpecificMonth) {
@@ -79,10 +91,11 @@ const Festival = () => {
             if (selectedSpecificMonth === '12월') {
                 return festival.개최기간.includes('12') || festival.개최기간.includes('12월중');
             }
-            return true;
         }
         return true;
     });
+
+    console.log('Categorized festivals:', categorizedFestivals); // 디버깅을 위해 추가
 
     const months = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
 
@@ -91,34 +104,38 @@ const Festival = () => {
             <div className="filters-container">
                 <input
                     type="text"
-                    placeholder="Search festivals..."
+                    placeholder="지역축제 검색하기"
                     value={filter}
                     onChange={handleFilterChange}
                 />
                 <select value={selectedMonth} onChange={handleMonthChange}>
-                    <option value="">Select Month</option>
-                    <option value="MONTH">MONTH</option>
+                    <option value="">기간 선택하기</option>
+                    <option value="MONTH">월</option>
                 </select>
                 {selectedMonth === 'MONTH' && (
                     <select value={selectedSpecificMonth} onChange={handleSpecificMonthChange}>
-                        <option value="">Select Specific Month</option>
+                        <option value="">월</option>
                         {months.map(month => (
                             <option key={month} value={month}>{month}</option>
                         ))}
                     </select>
                 )}
             </div>
-            <div className="market-list">
-                {categorizedFestivals.map(festival => (
-                    <div className="section_fes" key={festival.id}>
-                        <Link to={`/festival/${festival.id}`} style={{ textDecoration: 'none' }}>
-                            <div className="headerText">{festival.축제명}</div>
-                            <div className="innerText">더보기</div>
-                            <div className="InnerText">{festival.개최기간}</div>
-                            <div className="section__data">{festival.축제유형}</div>
-                        </Link>
-                    </div>
-                ))}
+            <div className="festival-list">
+                {categorizedFestivals.length > 0 ? (
+                    categorizedFestivals.map(festival => (
+                        <div className="section_fes" key={festival.id}>
+                            <Link to={`/festival/${festival.id}`} style={{ textDecoration: 'none' }}>
+                                <div className="headerText">{festival.축제명}</div>
+                                <div className="innerText">더보기</div>
+                                <div className="InnerText">{festival.개최기간}</div>
+                                <div className="section__data">{festival.축제유형}</div>
+                            </Link>
+                        </div>
+                    ))
+                ) : (
+                    <p>No festivals found.</p>
+                )}
             </div>
         </Main>
     );

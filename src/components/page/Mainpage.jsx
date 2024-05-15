@@ -10,7 +10,7 @@ import ScrollTo from '../../utils/scrollTo';
 
 /* 메인 홈 화면 구성용 칸 슬라이드 */
 
-const Mainpage = (props) => {
+const Mainpage = () => {
     return (
         <HelmetProvider>
             <ScrollTo />
@@ -19,26 +19,20 @@ const Mainpage = (props) => {
                 defaultTitle="전통시장" 
                 defer={false}
             >
-                {props.title && <title>{props.title}</title>}
-                <meta name="description" content={props.description} />
+             
             </Helmet>
 
             <Header />
             <main id='main' role='main'>
                 <Search />
-                {props.children}
+              
                 <Slider />
                 <Card />
             </main>
             
             <Footer />
         </HelmetProvider>
-
-        
-            
-    
     )
 }
-
 
 export default Mainpage;

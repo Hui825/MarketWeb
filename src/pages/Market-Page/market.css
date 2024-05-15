@@ -18,10 +18,15 @@
     gap: 20px;
 }
 
-.section_fes {
+.section_mk {
     flex: 1 1 calc(33.333% - 20px); /* 3개씩 출력되도록 설정 */
     box-sizing: border-box;
     margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px solid black; /* 1px의 두께를 가진 검정색 선 추가 */
+    
 }
 
 .headerText,

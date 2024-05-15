@@ -23,23 +23,33 @@
     box-sizing: border-box;
 }
 
-.fesheader__text {
-    font-size: 80px;
-    background-color: aquamarine;
+.mkheader__text {
+    font-size: 50px;
+    background-color: rgb(255, 189, 128);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* 모서리 둥글게 */
+    display: flex; /* 플렉스 컨테이너로 설정 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    height: 80px; /* 원하는 높이 설정 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    font-weight: bold;
 }
 
-.fesphoto__inner {
+.mkphoto__inner {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 20px;
     align-items: center;
-    background-color: coral;
+    background-color: rgba(216, 216, 216, 0.281);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .texts {
     display: flex;
     flex-direction: column; /* 텍스트 요소들을 세로로 정렬 */
-    justify-content: center; /* 세로 방향으로 중앙 정렬 */
+    justify-content: center; /* 세로 방향으로 중앙 정렬 */ 
 }
 
 .text1, .text2, .text3 {

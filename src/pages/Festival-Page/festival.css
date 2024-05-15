@@ -1,20 +1,11 @@
+/* festival.css */
 .filters-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0;
+    margin: 20px;
 }
 
-.filters-container input,
-.filters-container select {
-    margin: 0 10px;
-}
-
-.market-list {
+.festival-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 20px;
 }
 
@@ -22,11 +13,21 @@
     flex: 1 1 calc(33.333% - 20px); /* 3개씩 출력되도록 설정 */
     box-sizing: border-box;
     margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px solid black; /* 1px의 두께를 가진 검정색 선 추가 */
 }
 
-.headerText,
-.innerText,
-.InnerText,
+.headerText {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.innerText {
+    color: #555;
+}
+
 .section__data {
-    /* 스타일 추가 가능 */
+    margin-top: 10px;
 }

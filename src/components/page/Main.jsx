@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import Header from '../section/Header-Footer/Header';
@@ -8,7 +9,7 @@ import ScrollTo from '../../utils/scrollTo';
 
 /* 메인 홈 화면 구성용 칸 슬라이드 */
 
-const Main = (props) => {
+const Main = ({ title, description, children }) => {
     return (
         <HelmetProvider>
             <ScrollTo />
@@ -17,24 +18,26 @@ const Main = (props) => {
                 defaultTitle="전통시장" 
                 defer={false}
             >
-                {props.title && <title>{props.title}</title>}
-                <meta name="description" content={props.description} />
+                {title && <title>{title}</title>}
+                <meta name="description" content={description} />
             </Helmet>
 
             <Header />
             <main id='main' role='main'>
                 <Search />
-                {props.children}
+                {children}
             </main>
             
             <Footer />
         </HelmetProvider>
+    );
+};
 
-        
-            
-    
-    )
-}
-
+// prop-types를 사용하여 props의 타입을 정의합니다.
+Main.propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string,
+    children: PropTypes.node
+};
 
 export default Main;

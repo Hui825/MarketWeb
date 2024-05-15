@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Header = (props) => {
-  /*const [isMenuActive, setIsMenuActive] = useState(false);*/
   const [isSnbActive, setIsSnbActive] = useState(false);
   const [isHeaderFixed, setIsHeaderFixed] = useState(false);
 
@@ -22,7 +22,6 @@ const Header = (props) => {
     };
   }, []);
 
-
   return (
     <header
       id="header__wrap"
@@ -30,11 +29,10 @@ const Header = (props) => {
       role="heading"
       aria-level="1"
     >
-      
       <div className="header__inner">
         <div className="header__top container">
           <h1 className="header__logo">
-              <img src={require("../../../assets/images/main02.png")} />
+            <img src={require('../../../assets/images/Mainlogo2.png')} alt="로고" />
           </h1>
           <div className="header__member">
             <Link to="/Loginform">로그인</Link>
@@ -49,25 +47,21 @@ const Header = (props) => {
             </Link>
           </div>
         </div>
-     
 
-      <nav className="header__menu">
-        <ul>
-          <li>
-            <Link to="/">메인화면</Link>
-          </li>
-      
-          <li>
-            <Link to="/market">전통시장</Link>
-          </li>
-
-          <li>
-            <Link to="/festival">지역축제</Link>
-          </li>
-        </ul>
+        <nav className="header__menu">
+          <ul>
+            <li>
+              <Link to="/">메인화면</Link>
+            </li>
+            <li>
+              <Link to="/market">전통시장</Link>
+            </li>
+            <li>
+              <Link to="/festival">지역축제</Link>
+            </li>
+          </ul>
 
           <Link
-            
             className={`snb-more ${isSnbActive ? '' : 'active'}`}
             onClick={handleSnbToggle}
           >
@@ -78,42 +72,45 @@ const Header = (props) => {
         <div className={`snb-wrap ${isSnbActive ? '' : 'active'}`}>
           <div className="inner-box">
             <div className="mnu-wrap">
-
-                <div className="mnu-box">
-                  <Link>정보 등록</Link>
-                  <ul>
-                      <li>
-                        <Link to="/RegistMenu">전통시장</Link>
-                      </li>
-                      <li>
-                        <Link to="/">지역축제</Link>
-                      </li>
-                      <li>
-                        <Link to="/">기타문의</Link>
-                      </li>
-                  </ul>
-                </div>
-              </div>
-
               <div className="mnu-box">
-                <Link>페이지</Link>
-                  <ul>
-                    <li>
-                      <Link to="/">마이페이지</Link>
-                    </li>
-                    <li>
-                      <Link to="/">인증페이지</Link>
-                    </li>
-                    <li>
-                      <Link to="/">로그인 및 회원등록</Link>
-                    </li>
-                  </ul>
+                <Link>정보 등록</Link>
+                <ul>
+                  <li>
+                    <Link to="/RegistMenu">전통시장</Link>
+                  </li>
+                  <li>
+                    <Link to="/">지역축제</Link>
+                  </li>
+                  <li>
+                    <Link to="/">기타문의</Link>
+                  </li>
+                </ul>
               </div>
             </div>
+
+            <div className="mnu-box">
+              <Link>페이지</Link>
+              <ul>
+                <li>
+                  <Link to="/">마이페이지</Link>
+                </li>
+                <li>
+                  <Link to="/">인증페이지</Link>
+                </li>
+                <li>
+                  <Link to="/">로그인 및 회원등록</Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  attr: PropTypes.string,
 };
 
 export default Header;

@@ -1,4 +1,5 @@
-import Main from '../components/page/Main'
+import Main from '../components/page/Main';
+import React from 'react';
 
 const Mypage = () => {
     

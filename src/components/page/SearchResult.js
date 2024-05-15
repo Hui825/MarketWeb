@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Main from './Main';
-import searchKeyword from './Search.js';
 
 const SearchResults = () => {
     const location = useLocation();
@@ -13,7 +12,7 @@ const SearchResults = () => {
         <Main>
             <div className="search-results">
                 <h1>Search Results</h1>
-                {query && <h2>"{query}"에 대한 검색 결과입니다.</h2>}
+                {query && <h2>&quot;{query}&quot;에 대한 검색 결과입니다.</h2>}
                 <ul>
                     {filteredData && filteredData.length > 0 ? (
                         filteredData.map((item) => (

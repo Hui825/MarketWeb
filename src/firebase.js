@@ -4,7 +4,7 @@ import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
 
-  databaseURL: "https://test01-24j6o-default-rtdb.firebaseio.com/",
+  databaseURL: "https://python-db-practice-96823-default-rtdb.firebaseio.com/",
 
 };
 

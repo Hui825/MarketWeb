@@ -61,7 +61,7 @@ const Search = () => {
                     id='searchInput' 
                     autoComplete='off'
                     className='search__input'
-                    placeholder='Search for information!'
+                    placeholder='검색할 정보를 입력해주세요!'
                     onChange={e => setSearchKeyword(e.target.value)}
                     onKeyDown={e => {
                         if (e.key === 'Enter') {

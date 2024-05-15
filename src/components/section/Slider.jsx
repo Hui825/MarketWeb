@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -9,13 +10,13 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 
-const Slider = props => {
+const Slider = (props) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const [isAutoplayEnabled, setIsAutoplayEnabled] = useState(true);
   const swiperRef = useRef(null);
 
-  const handleSlideChange = swiper => {
+  const handleSlideChange = (swiper) => {
     setCurrentSlide(swiper.realIndex);
   };
 
@@ -67,20 +68,24 @@ const Slider = props => {
           </Swiper>
 
           <div className="slide-count-wrap">
-              <span className="slide-count">{currentSlide + 1} / 5</span>
-              <Link
-                to="/"
-                className={`btn-play ${isAutoplayEnabled ? '' : 'on'}`}
-                onClick={toggleAutoplay}
-              >
-                {isAutoplayEnabled ? 'Pause' : 'Play'}
-              </Link>
+            <span className="slide-count">{currentSlide + 1} / 5</span>
+            <Link
+              to="/"
+              className={`btn-play ${isAutoplayEnabled ? '' : 'on'}`}
+              onClick={toggleAutoplay}
+            >
+              {isAutoplayEnabled ? 'Pause' : 'Play'}
+            </Link>
           </div>
           
-          </div>
+        </div>
       </div>
     </div>
   );
+};
+
+Slider.propTypes = {
+  attr: PropTypes.string,
 };
 
 export default Slider;

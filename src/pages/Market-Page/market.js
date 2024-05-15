@@ -10,7 +10,7 @@ import rest02 from '../../assets/ico/restroomicon02.png';
 import voucher01 from '../../assets/ico/온누리.png'; 
 import voucher02 from '../../assets/ico/상품권없음.png'; 
 
-const databaseURL = 'https://python-db-practice-96823-default-rtdb.firebaseio.com/';
+const databaseURL = 'https://python-db-practice-96823-default-rtdb.firebaseio.com';
 
 const Market = () => {
     const [markets, setMarkets] = useState([]);
@@ -72,12 +72,12 @@ const Market = () => {
             <div className="filters-container">
                 <input
                     type="text"
-                    placeholder="Search markets..."
+                    placeholder="전통시장 검색하기"
                     value={filter}
                     onChange={handleFilterChange}
                 />
                 <select value={selectedRegion} onChange={handleRegionChange}>
-                    <option value="All">Select Region</option>
+                    <option value="All">지역 선택</option>
                     <option value="강원도">강원도</option>
                     {/* 다른 상위 카테고리를 여기에 추가할 수 있습니다. */}
                 </select>
@@ -92,7 +92,7 @@ const Market = () => {
             </div>
             <div className="market-list">
                 {categorizedMarkets.map(market => (
-                    <div className="section_fes" key={market.id}>
+                    <div className="section_mk" key={market.id}>
                         <Link to={`/market/${market.id}`} style={{ textDecoration: 'none' }}>
                             <div className="headerText">{market.시장명}</div>
                             <div className="innerText">더보기</div>
