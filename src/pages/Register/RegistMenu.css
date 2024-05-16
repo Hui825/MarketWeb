@@ -1,132 +1,114 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* 전체 레이아웃 */
+.regist-container {
+    max-width: 800px;
+    margin: 20px auto; /* 헤더와의 간격을 위해 20px 여백 추가 */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-.section_whole {
-    align-items: center;
-    background-color:rgb(129, 130, 133);
-    width: 1000px;
-    height: 1000px;
-    margin-inline-start: 75px;
-    margin-inline-end: 30px;
-    margin-bottom: 30px;
-    border-radius: 60px;
+/* 사진 첨부 섹션 */
+.photo-upload {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
-
-h1 {
-    font-size: 36px;
-    text-align: center;
-}
-
-.input-box {
-    
-    position: relative;
-    width: 100%;
-    height: 70px;
-
-}
-
-.input-box2 {
-    display: block;
-    width : 100%;
-    text-align: center;
-    margin-left: 10px;
-    margin: 0 auto;
-    position: relative;
-
-}
-
-.input-box2 input{
-    background-color: aquamarine;
-    
-}
-
-.input-box3 {
-
-    width : 100%;
-    text-align: center;
-    margin-left: 10px;
-    margin: 0 auto;
-    position: relative;
-
-}
-.input-box3 input{
-    display: block;
-    margin-left: 100px;
-    width: 800px;
-    height: 100px;
-}
-
-
-.input-box4 input{
-    display: block;
-
-    margin-left: 100px;
-    position: relative;
-    width: 800px;
-    height: 100px;  
-}
-
-
-.input-box input {
-    margin-left: 100px;
-    width: 800px;
-    height: 20px;
-    background: orange;
-    border: none;
-    outline: none;
-    border: 3px solid rgba(255, 255, 255, 0.295);
-    border-radius: 40px;
+.photo-upload label {
     font-size: 16px;
-    padding: 20px 45px 20px 20px;
-}
-
-.input-box input::placeholder {
-    color: #fff;
-}
-
-.input-box .icon {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-}
-
-.data{
-    display: block;
-
-    text-align: center;
-    position:relative;
-    
-    justify-content: space-between;
-    font-size: 14.5px;
-    margin-top: 10px;
     margin-bottom: 10px;
+}
 
+.photo-upload input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
+/* 타이틀 */
+.regist-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 
+/* 축제명 입력 섹션 */
+.festival-name {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
 
-
-.button {
-    align-items: center;
-   
-    margin: 0 auto;
-    position: relative;
-    width: 200px;
-    height: 45px;
-    background: #fff;
- 
-    border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
-    cursor: pointer;
+.festival-name label {
     font-size: 16px;
-    color: #333;
-    font-weight: 500px;
+    margin-bottom: 10px;
+}
+
+.festival-name input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 축제 기간 입력 섹션 */
+.festival-period {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.festival-period label {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.festival-period input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* 축제 내용 입력 섹션 */
+.festival-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.festival-content label {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.festival-content textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* 제출 버튼 */
+.submit-button {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button button:hover {
+    background-color: #0056b3;
 }

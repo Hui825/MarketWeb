@@ -1,16 +1,103 @@
+/* 전체 레이아웃 */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 화면 전체 높이 */
+}
+
+.content-container {
+    display: flex;
+    flex: 1; /* 남은 공간을 모두 차지 */
+}
+
+/* 왼쪽 메뉴바 */
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; /* padding 포함해서 높이 계산 */
+    overflow-y: auto; /* 내용이 길어지면 스크롤 가능 */
+    border-top: 1px solid #ddd; /* 상단 실선 추가 */
+    border-bottom: 1px solid #ddd; /* 하단 실선 추가 */
+}
+
+/* 검색 입력 */
+.search-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 카테고리 선택 */
+.select-box {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 시장 목록 */
+.market-list-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto; /* 세로 스크롤 추가 */
+}
+
+/* 시장 항목 */
+.section_mk {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* 페이지네이션 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #ddd;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+/* 필터 컨테이너 */
 .filters-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* 세로 정렬 */
     width: 100%;
     padding: 10px 0;
 }
 
 .filters-container input,
 .filters-container select {
-    margin: 0 10px;
+    margin: 0 0 10px 0; /* 세로 간격 추가 */
 }
 
+/* 시장 리스트 */
 .market-list {
     display: flex;
     flex-wrap: wrap;
@@ -26,42 +113,17 @@
     border-radius: 5px;
     padding: 20px;
     border: 1px solid black; /* 1px의 두께를 가진 검정색 선 추가 */
-    
 }
 
 .headerText,
 .innerText,
 .InnerText,
+
 .section__data {
-    /* 스타일 추가 가능 */
-}
-
-.card {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 2px;
+    flex-direction: row;
 }
 
-.small-images-container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px 0;
-}
 
-.small-img {
-    width: 400px;
-    height: 100px;
-}
 
-.large-image-container {
-    width: 100%;
-    height: 1000px;
-    overflow: hidden; /* 이미지가 컨테이너를 넘어서지 않도록 */
-}
-
-.large-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 이미지 비율을 유지하면서 컨테이너에 맞추기 */
-}

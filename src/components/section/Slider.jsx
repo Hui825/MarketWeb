@@ -1,18 +1,14 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
+import '../../assets/scss/layout/_slider.scss';
 
 const Slider = (props) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const [isAutoplayEnabled, setIsAutoplayEnabled] = useState(true);
   const swiperRef = useRef(null);
 
@@ -22,13 +18,11 @@ const Slider = (props) => {
 
   const toggleAutoplay = () => {
     const swiper = swiperRef.current.swiper;
-
     if (swiper.autoplay.running) {
       swiper.autoplay.stop();
     } else {
       swiper.autoplay.start();
     }
-
     setIsAutoplayEnabled(!isAutoplayEnabled);
   };
 
@@ -66,18 +60,15 @@ const Slider = (props) => {
               <img src={require("../../assets/images/Main_slide05.png")} alt="" />
             </SwiperSlide>
           </Swiper>
-
-          <div className="slide-count-wrap">
-            <span className="slide-count">{currentSlide + 1} / 5</span>
-            <Link
-              to="/"
-              className={`btn-play ${isAutoplayEnabled ? '' : 'on'}`}
-              onClick={toggleAutoplay}
-            >
-              {isAutoplayEnabled ? 'Pause' : 'Play'}
-            </Link>
-          </div>
-          
+        </div>
+      </div>
+      <div className="slide-count-wrap">
+        <span className="slide-count">{currentSlide + 1} / 5</span>
+        <div
+          className={`btn-play ${isAutoplayEnabled ? '' : 'on'}`}
+          onClick={toggleAutoplay}
+        >
+          {isAutoplayEnabled ? 'Pause' : 'Play'}
         </div>
       </div>
     </div>

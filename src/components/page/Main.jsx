@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-
 import Header from '../section/Header-Footer/Header';
 import Footer from '../section/Header-Footer/Footer';
 import Search from './Search';
 import ScrollTo from '../../utils/scrollTo';
+import Chatbot from '../../pages/ETC/Chatbot'; // 챗봇 컴포넌트 import
 
-/* 메인 홈 화면 구성용 칸 슬라이드 */
-
-const Main = ({ title, description, children }) => {
+const Main = (props) => {
     return (
         <HelmetProvider>
             <ScrollTo />
@@ -18,22 +16,22 @@ const Main = ({ title, description, children }) => {
                 defaultTitle="전통시장" 
                 defer={false}
             >
-                {title && <title>{title}</title>}
-                <meta name="description" content={description} />
+                {props.title && <title>{props.title}</title>}
+                <meta name="description" content={props.description} />
             </Helmet>
 
             <Header />
             <main id='main' role='main'>
                 <Search />
-                {children}
+                {props.children}
             </main>
-            
+            <Chatbot /> {Chatbot}
             <Footer />
         </HelmetProvider>
     );
 };
 
-// prop-types를 사용하여 props의 타입을 정의합니다.
+// prop-types를 사용하여 props의 유형 정의
 Main.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
@@ -41,3 +39,6 @@ Main.propTypes = {
 };
 
 export default Main;
+
+
+//21dlf
