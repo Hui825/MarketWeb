@@ -1,11 +1,6 @@
-import React, {Suspense} from 'react'
+import React, { Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './components/page/Main';
-
-
-
-
-
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Website = React.lazy(() => import('./pages/Mypage'));
@@ -22,11 +17,7 @@ const LoginForm = React.lazy(() => import('./pages/Login Page/LoginForm'));
 const FestivalMore = React.lazy(() => import('./pages/Festival-Page/festivalmore.jsx'));
 const MarketMore = React.lazy(() => import('./pages/Market-Page/marketmore.jsx'));
 
-
-
-
 const App = () => {
-
     return (
         <BrowserRouter>
             <Suspense fallback={<Main />}>
@@ -45,10 +36,11 @@ const App = () => {
                     <Route path="/Market" element={<Market />} />
                     <Route path="/Festival/:index" element={<FestivalMore />} />
                     <Route path="/Market/:index" element={<MarketMore />} />
+                    <Route path="/춘천중앙시장.html" element={<iframe src="/춘천중앙시장.html" width="500" height="400" title="춘천중앙시장 지도"></iframe>} />
                 </Routes>
             </Suspense>
         </BrowserRouter>
-
     );
-  }
-  export default App;
+}
+
+export default App;

@@ -55,3 +55,8 @@
 .text1, .text2, .text3 {
     margin: 5px 0; /* 텍스트 사이의 간격 */
 }
+
+.map-container {
+    margin-top: 20px;
+  }
+  

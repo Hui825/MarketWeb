@@ -29,7 +29,7 @@ const Slider = (props) => {
   return (
     <div id="sliderSection" className={props.attr}>
       <div className="slider__inner">
-        <h2 className="blind">메인</h2>
+        <h2 className="blind">축제를 즐겨보세요!</h2>
         <div className="slider__img">
           <Swiper
             ref={swiperRef}

@@ -3,10 +3,10 @@ import Main from '../../components/page/Main.jsx';
 import { Link } from 'react-router-dom';
 import './market.css';
 
+
 import { FaSquareParking } from "react-icons/fa6";
 import { FaRestroom } from "react-icons/fa";
 import { TbGiftCardFilled } from "react-icons/tb";
-import { MdDoNotDisturbAlt } from "react-icons/md";
 
 const databaseURL = 'https://python-db-practice-96823-default-rtdb.firebaseio.com';
 
@@ -112,10 +112,10 @@ const Market = () => {
                                         <div className="headerText">{market.시장명}</div>
                                         <div className="InnerText">{market.소재지도로명주소}</div>
                                         <div className="section__data">{market.소재지지번주소}</div>
-                                        <div className="section__data">
+                                        <div className="section__data_icon">
                                             {market.주차장보유여부 === 'Y' && <FaSquareParking />}
                                             {market.공중화장실보유여부 === 'Y' && <FaRestroom /> }                                  
-                                            {market.사용가능상품권 === '온누리상품권' ? <TbGiftCardFilled/> : <MdDoNotDisturbAlt/>}
+                                            {market.사용가능상품권 === '온누리상품권' && <TbGiftCardFilled title="온누리상품권"/>}
                                         </div>
                                     </Link>
                                 </div>

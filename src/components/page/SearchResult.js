@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Main from './Main';
-
+import './SearchResult.css';
 const SearchResults = () => {
     const location = useLocation();
     const { filteredData, query } = location.state || {};
@@ -10,16 +10,18 @@ const SearchResults = () => {
 
     return (
         <Main>
-            <div className="search-results">
-                <h1>Search Results</h1>
-                {query && <h2>&quot;{query}&quot;에 대한 검색 결과입니다.</h2>}
-                <ul>
+            <div className="search-results-container">
+                <div className="results-header">
+                    <h1>검색 결과</h1>
+                    {query && <h2>&quot;{query}&quot;에 대한 검색 결과입니다.</h2>}
+                </div>
+                <ul className="results-list">
                     {filteredData && filteredData.length > 0 ? (
                         filteredData.map((item) => (
-                            <li key={item.id}>
+                            <li key={item.id} className="result-item">
                                 {item.시장명 && (
-                                    <div>
-                                        <p>
+                                    <div className="result-box">
+                                        <p className="item-title">
                                             시장명: 
                                             <Link to={`/market/${item.id}`}>{item.시장명}</Link>
                                         </p>
@@ -27,8 +29,8 @@ const SearchResults = () => {
                                     </div>
                                 )}
                                 {item.축제명 && (
-                                    <div>
-                                        <p>
+                                    <div className="result-box">
+                                        <p className="item-title">
                                             축제명: 
                                             <Link to={`/festival/${item.id}`}>{item.축제명}</Link>
                                         </p>

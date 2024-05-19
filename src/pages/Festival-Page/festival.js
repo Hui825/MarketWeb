@@ -137,6 +137,7 @@ const Festival = () => {
                                         <Link to={`/festival/${festival.id}`} style={{ textDecoration: 'none' }}>
                                             <div className="headerText">{festival.축제명}</div>
                                             <div className="InnerText">{festival.개최기간}</div>
+                                            <div className="InnerText">{festival.개최장소}</div>
                                             <div className={`section__data ${festival.축제유형}`}>
                                                 {festival.축제유형.includes('문화예술') && <IoBalloon className="icon" /> }
                                                 {festival.축제유형.includes('자연') && <GiThreeLeaves className="icon" />}

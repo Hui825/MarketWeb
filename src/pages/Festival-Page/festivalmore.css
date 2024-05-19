@@ -3,8 +3,8 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0; /* 페이지 배경색 */
-    padding: 20px; /* 여유 공간 추가 */
+    background-color: #f0f0f0;
+    padding: 20px;
     box-sizing: border-box;
 }
 
@@ -13,35 +13,90 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: blueviolet;
-    width: 80%; /* 원하는 너비로 설정 */
-    max-width: 1200px; /* 최대 너비 설정 */
+    background-color: #fff;
+    width: 80%;
+    max-width: 1200px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 박스 그림자 */
-    background-color: #fff; /* 배경색 */
-    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
     box-sizing: border-box;
 }
 
 .fesheader__text {
     font-size: 80px;
     background-color: aquamarine;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .fesphoto__inner {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 500px 500px;
     gap: 20px;
     align-items: center;
-    background-color: coral;
+    margin-bottom: 20px;
+}
+
+.festival-image,
+.map-placeholder {
+    width: 500px;
+    height: 400px;
+    object-fit: cover;
 }
 
 .texts {
     display: flex;
-    flex-direction: column; /* 텍스트 요소들을 세로로 정렬 */
-    justify-content: center; /* 세로 방향으로 중앙 정렬 */
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
 }
 
-.text1, .text2, .text3 {
-    margin: 5px 0; /* 텍스트 사이의 간격 */
+.text1, .text2, .text3, .text4 {
+    margin: 5px 0;
+}
+
+.text4 {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #000000;
+    border-radius: 8px;
+}
+
+/* 축제 유형 아이콘 */
+.icon {
+    margin-right: 5px;
+}
+
+/* 생태자연 유형 배경색 */
+.section__data.생태자연 {
+    background-color: #a5d6a7;
+}
+
+.section__data.자연 {
+    background-color: #a5d6a7;
+}
+
+.section__data.전통역사 {
+    background-color: #fc9895;
+}
+
+.section__data.주민화합 {
+    background-color: #ffed4f;
+}
+
+.section__data.특산물 {
+    background-color: #fdc585;
+}
+
+.section__data.지역특산물 {
+    background-color: #fdc585;
+}
+
+.section__data.문화예술 {
+    background-color: #f8bbd0;
+}
+
+.section__data.기타 {
+    background-color: #a1a1a1;
 }

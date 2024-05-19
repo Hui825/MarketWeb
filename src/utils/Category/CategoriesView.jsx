@@ -8,7 +8,7 @@ const SearchView = () => {
   // Firebase에서 데이터 불러오기
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('https://YOUR-FIREBASE-PROJECT.firebaseio.com/data.json');
+      const response = await fetch('https://python-db-practice-96823-default-rtdb.firebaseio.com');
       if (response.ok) {
         const fetchedData = await response.json();
         const items = fetchedData ? Object.keys(fetchedData).map(key => ({

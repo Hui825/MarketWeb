@@ -53,16 +53,21 @@
 
 /* 축제 항목 */
 .section_fes {
-    background-color: #fff;
+    background-color: #dddddd; /* 주황색 배경 */
     border: 1px solid #ddd;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 4px;
+    color: white; /* 텍스트 색상을 흰색으로 변경 */
 }
 
 .headerText {
-    font-size: 18px;
+    text-align: center;
+    font-size: 20px;
     font-weight: bold;
+    background-color: rgb(255, 208, 147);
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
 
 .innerText {
@@ -75,6 +80,7 @@
     align-items: center;
     padding: 5px; /* 추가적인 패딩 설정 */
     border-radius: 4px; /* 약간의 둥근 모서리 설정 */
+    color: white; /* 텍스트 색상을 흰색으로 변경 */
 }
 
 .icon {
@@ -161,8 +167,46 @@
     flex: 1 1 calc(33.333% - 20px); /* 3개씩 출력되도록 설정 */
     box-sizing: border-box;
     margin-bottom: 20px;
-    background-color: #fff;
+    background-color: #f0f0f0e1; /* 주황색 배경 추가 */
     border-radius: 5px;
     padding: 20px;
     border: 1px solid black; /* 1px의 두께를 가진 검정색 선 추가 */
+    color: white; /* 텍스트 색상을 흰색으로 변경 */
+}
+
+.headerText,
+.innerText,
+.InnerText,
+.section__data {
+    /* 스타일 추가 가능 */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.small-images-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.small-img {
+    width: 400px;
+    height: 100px;
+}
+
+.large-image-container {
+    width: 100%;
+    height: 1000px;
+    overflow: hidden; /* 이미지가 컨테이너를 넘어서지 않도록 */
+}
+
+.large-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지 비율을 유지하면서 컨테이너에 맞추기 */
 }
