@@ -37,7 +37,7 @@ const Market = () => {
 
     const handleRegionChange = (event) => {
         setSelectedRegion(event.target.value);
-        setSelectedCity(''); // 상위 카테고리가 변경될 때 하위 카테고리를 초기화
+        setSelectedCity('');
         setCurrentPage(1);
     };
 
@@ -71,7 +71,6 @@ const Market = () => {
 
     const citiesByRegion = {
         '강원도': ['춘천', '강릉', '원주', '홍천'],
-        // 다른 지역에 대해서도 여기에 도시들을 추가할 수 있습니다.
     };
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -92,7 +91,6 @@ const Market = () => {
                             <select className="select-box" value={selectedRegion} onChange={handleRegionChange}>
                                 <option value="All">지역 선택</option>
                                 <option value="강원도">강원도</option>
-                                {/* 다른 상위 카테고리를 여기에 추가할 수 있습니다. */}
                             </select>
                             {selectedRegion && citiesByRegion[selectedRegion] && (
                                 <select className="select-box" value={selectedCity} onChange={handleCityChange}>

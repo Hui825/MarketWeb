@@ -1,24 +1,18 @@
-/* slider */
 #slider {
   width: 100%;
-  height: 65vh;
   overflow: hidden;
   position: relative;
   margin-top: 15px;
-  margin-bottom: 40px; /* 하단 마진 추가 */
+  margin-bottom: 40px;
 }
 
 .sliderWrap {
   display: flex;
-  width: 500%;
-  height: 100%;
   transition: transform 0.5s ease;
 }
 
 .slider {
   flex: 1;
-  width: 100%;
-  height: 100%;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -49,26 +43,34 @@
   object-fit: cover;
 }
 
+.slider__inner {
+  position: relative;
+}
+
+.swiper-pagination {
+  top: 10px !important;
+}
+
 .slide-count-wrap {
   position: absolute;
-  bottom: 60px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
   padding: 12px 20px;
   color: #fff;
-  font-size: 18px;
+  font-size: 15px;
   z-index: 1;
   background: rgba(0, 0, 0, 0.4);
-  border-radius: 40px;
+  border-radius: 30px;
   display: flex;
-  align-items: center;  /* 수직 중앙 정렬 */
+  align-items: center;
 }
 
 .btn-play {
-  margin-left: 10px;
+  margin-left: 5px;
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   background: url(./../../images/play-icon.png) no-repeat center center;
   background-size: contain;
   font-size: 0;
@@ -83,4 +85,17 @@
 
 .slide-count {
   color: #ffffff;
+}
+
+.slider__img .swiper-slide {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider__img img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
 }

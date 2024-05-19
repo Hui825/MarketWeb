@@ -24,30 +24,26 @@ const MarketMore = () => {
         if (data) {
           setMarket(data);
           const imageName = encodeURIComponent(data.시장명);
-          const possibleExtensions = ['jpg', 'jpeg', 'png'];
-
-          let foundImage = false;
-          possibleExtensions.forEach(ext => {
-            if (!foundImage) {
-              const url = `https://storage.googleapis.com/python-db-practice-96823.appspot.com/${imageName}.${ext}`;
-              fetch(url)
-                .then(res => {
-                  if (res.ok) {
-                    setImageUrl(url);
-                    setImageError(false);
-                    foundImage = true;
-                  } else {
-                    setImageError(true);
-                  }
-                })
-                .catch(() => setImageError(true));
-            }
-          });
+          const url = `https://python-db-practice-96823.appspot.com/전통시장이미지데이터(강원도)/${imageName}.jpg`;
+          console.log(`Trying URL: ${url}`); // URL 디버깅 출력
+          fetch(url)
+            .then(res => {
+              if (res.ok) {
+                setImageUrl(url);
+                setImageError(false);
+              } else {
+                throw new Error('Failed to load image');
+              }
+            })
+            .catch(() => setImageError(true));
         } else {
           console.log('No data available for this index');
         }
       })
-      .catch(error => console.error('Error fetching data:', error));
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setImageError(true);
+      });
   }, [index]);
 
   return (

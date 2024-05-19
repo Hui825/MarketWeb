@@ -18,7 +18,7 @@
 
 .header__top {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* 가운데 정렬 */
   align-items: center;
   position: relative;
   z-index: 3;
@@ -42,6 +42,8 @@
 .header__member {
   display: flex;
   align-items: center;
+  position: absolute;
+  right: 20px; /* 오른쪽에 위치하도록 설정 */
 }
 
 .header__member a {
@@ -71,12 +73,14 @@
 .header__menu {
   position: relative;
   display: flex;
+  width: 100%;
   align-items: center;
   z-index: 3;
-  background: #fff;
+  background: #ffffff;
   height: 20px;
   justify-content: center;
   margin-right: 28px;
+  margin-bottom: 10px;
 }
 
 .header__menu ul {
@@ -205,6 +209,6 @@
   width: 270px;
   padding: 22px 0 23px 70px;
   margin-top: 10px;
-  border-left: 1px solid #ddd;
+  border-left: 1px solid #ffffff;
   vertical-align: top;
 }

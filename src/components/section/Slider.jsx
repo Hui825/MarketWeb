@@ -29,7 +29,6 @@ const Slider = (props) => {
   return (
     <div id="sliderSection" className={props.attr}>
       <div className="slider__inner">
-        <h2 className="blind">축제를 즐겨보세요!</h2>
         <div className="slider__img">
           <Swiper
             ref={swiperRef}
@@ -39,6 +38,9 @@ const Slider = (props) => {
               disableOnInteraction: false,
               enabled: isAutoplayEnabled,
             }}
+            slidesPerView={4}
+            slidesPerGroup={1}
+            spaceBetween={20}
             pagination={{ clickable: true }}
             navigation={true}
             modules={[Autoplay, Navigation, Pagination]}
@@ -59,16 +61,16 @@ const Slider = (props) => {
             <SwiperSlide>
               <img src={require("../../assets/images/Main_slide05.png")} alt="" />
             </SwiperSlide>
-          </Swiper>
+            </Swiper>
         </div>
-      </div>
-      <div className="slide-count-wrap">
-        <span className="slide-count">{currentSlide + 1} / 5</span>
-        <div
-          className={`btn-play ${isAutoplayEnabled ? '' : 'on'}`}
-          onClick={toggleAutoplay}
-        >
-          {isAutoplayEnabled ? 'Pause' : 'Play'}
+        <div className="slide-count-wrap">
+          <span className="slide-count">{currentSlide + 1} / 5</span>
+          <div
+            className={`btn-play ${isAutoplayEnabled ? '' : 'on'}`}
+            onClick={toggleAutoplay}
+          >
+            {isAutoplayEnabled ? 'Pause' : 'Play'}
+          </div>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px auto;  /* 섹션 사이의 간격 추가 */
+    margin: 40px auto; /* 섹션 사이의 간격 추가 */
 }
 
 .small-images-container {
@@ -19,13 +19,96 @@
 }
 
 .large-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 400px;
+    height: 250px;
     overflow: hidden;
+    padding: 20px; 
+    position: relative;
 }
 
-.large-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.speech-bubble-left {
+    margin-right: 300px;
+    position: relative;
+    background: #e7e7e7;
+    border-radius: 0.4em;
+    padding: 20px;
+    width: 800px; 
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-left: 20px;
+}
+
+.speech-bubble-left::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px; 
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-right-color: #e7e7e7;
+    border-left: 0;
+    margin-left: 0px; 
+  
+}
+
+.speech-bubble-right {
+    position: relative;
+    background: #e7e7e7;
+    border-radius: 0.4em;
+    padding: 20px;
+    width: 800px; 
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-right: -300px;
+}
+
+.speech-bubble-right::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -20px; 
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-left-color: #e7e7e7;
+    border-right: 0;
+    margin-right: 0px; 
+}
+
+.speech-bubble-icon-left {
+    font-size: 100px;
+    margin-left: 70px;
+    position: absolute;
+    left: 10px;
+}
+
+.speech-bubble-icon-right {
+    font-size: 100px;
+    margin-right: 70px; 
+    position: absolute;
+    right: 10px;
+}
+
+.large-icon-left {
+    font-size: 50px;
+}
+
+.large-icon-right {
+    font-size: 50px;
+}
+
+.welcome-text {
+    font-size: 25px;
+    font-weight: bold;
+    color: #333; /* 텍스트 색상 */
 }
