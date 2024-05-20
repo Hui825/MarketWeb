@@ -137,30 +137,32 @@ const MarketMore = () => {
                   </div>
                 </div>
               </div>
-              <div className='nearby-markets-wrapper'>
-                <div className='nearby-markets-container'>
-                  <div className='nearby-markets-title'>
-                    <img src={mor} alt="More Icon" className="more-icon" />
-                    <div className="inner__font4">가까운 다른 시장도 구경해보세요!</div>
-                  </div>
-                  <div className='nearby-markets'>
-                    <button onClick={scrollLeft} disabled={scrollPosition === 0}>
-                      <IoIosArrowBack size={30} />
-                    </button>
-                    <div className='nearby-markets-content'>
-                      {nearbyMarkets.slice(scrollPosition, scrollPosition + 5).map((nearbyMarket, idx) => (
-                        <div key={idx} className='nearby-market-item'>
-                          <img src={getImageUrl(nearbyMarket.시장명)} alt={nearbyMarket.시장명} />
-                          <div>{nearbyMarket.시장명}</div>
-                        </div>
-                      ))}
+              {nearbyMarkets.length > 0 && (
+                <div className='nearby-markets-wrapper'>
+                  <div className='nearby-markets-container'>
+                    <div className='nearby-markets-title'>
+                      <img src={mor} alt="More Icon" className="more-icon" />
+                      <div className="inner__font4">가까운 다른 시장도 구경해보세요!</div>
                     </div>
-                    <button onClick={scrollRight} disabled={scrollPosition + 5 >= nearbyMarkets.length}>
-                      <IoIosArrowForward size={30} />
-                    </button>
+                    <div className='nearby-markets'>
+                      <button onClick={scrollLeft} disabled={scrollPosition === 0}>
+                        <IoIosArrowBack size={30} />
+                      </button>
+                      <div className='nearby-markets-content'>
+                        {nearbyMarkets.slice(scrollPosition, scrollPosition + 5).map((nearbyMarket, idx) => (
+                          <div key={idx} className='nearby-market-item'>
+                            <img src={getImageUrl(nearbyMarket.시장명)} alt={nearbyMarket.시장명} />
+                            <div>{nearbyMarket.시장명}</div>
+                          </div>
+                        ))}
+                      </div>
+                      <button onClick={scrollRight} disabled={scrollPosition + 5 >= nearbyMarkets.length}>
+                        <IoIosArrowForward size={30} />
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           ) : (
             <p>Loading...</p>
