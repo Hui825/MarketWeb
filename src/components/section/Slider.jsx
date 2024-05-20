@@ -47,19 +47,19 @@ const Slider = (props) => {
             onSlideChange={handleSlideChange}
           >
             <SwiperSlide>
-              <img src={require("../../assets/images/Main_slide01.png")} alt="" />
+              <img src={require("../../assets/images/imagetest/축제1.jpg")} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={require("../../assets/images/Main_slide02.png")} alt="" />
+              <img src={require("../../assets/images/imagetest/축제2.png")} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={require("../../assets/images/Main_slide03.png")} alt="" />
+              <img src={require("../../assets/images/imagetest/축제3.jpg")} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={require("../../assets/images/Main_slide04.png")} alt="" />
+              <img src={require("../../assets/images/imagetest/축제4.jpg")} alt="" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src={require("../../assets/images/Main_slide05.png")} alt="" />
+              <img src={require("../../assets/images/imagetest/축제4.jpg")} alt="" />
             </SwiperSlide>
             </Swiper>
         </div>

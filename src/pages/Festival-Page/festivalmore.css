@@ -1,10 +1,11 @@
+/* 기존 CSS */
 .main-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #f0f0f0;
-    padding: 20px;
+    padding: 40px 20px;
     box-sizing: border-box;
 }
 
@@ -22,27 +23,51 @@
     box-sizing: border-box;
 }
 
-.fesheader__text {
-    font-size: 80px;
-    background-color: aquamarine;
+.header-container {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
+}
+
+.fesheader__text {
+    font-size: 30px;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: left;
+    align-self: flex-start;
 }
 
 .fesphoto__inner {
-    display: grid;
-    grid-template-columns: 500px 500px;
+    display: flex;
     gap: 20px;
     align-items: center;
-    margin-bottom: 20px;
+    background-color: #c2d5fd; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-.festival-image,
+.festival-image {
+    width: 400px;
+    height: auto;
+    border-radius: 8px;
+}
+
 .map-placeholder {
-    width: 500px;
+    width: 600px;
     height: 400px;
-    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    text-align: center;
 }
 
 .texts {
@@ -52,15 +77,82 @@
     width: 80%;
 }
 
-.text1, .text2, .text3, .text4 {
+.text1 {
+    font-size: 18px;
+    border-radius: 8px;
+    height: 35px;
+    width: auto;
+    padding: 0 10px;
+    line-height: 35px;
+    background: linear-gradient(to bottom, transparent 30%, rgb(205, 235, 255) 30%, rgb(205, 235, 255) 70%, transparent 70%);
+}
+
+.text2, .text3, .text4 {
     margin: 5px 0;
 }
 
 .text4 {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #000000;
+    font-size: 20px;
+}
+
+.textbox {
+    background-color: #d8d8d8;
     border-radius: 8px;
+    justify-content: center;
+}
+
+.info-and-contact-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.info-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(221, 221, 221);
+    width: 47%;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.text-with-icon {
+    display: flex;
+    align-items: center;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(177, 217, 255);
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.icon-container .icon {
+    width: 24px;
+    height: 24px;
+}
+
+.section__data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 18px;
+    height: 35px;
+    width: auto;
+    padding: 0 10px;
+    line-height: 35px;
+    font-weight: bold;
+    background-color: #f0f0f0;
 }
 
 /* 축제 유형 아이콘 */
@@ -99,4 +191,112 @@
 
 .section__data.기타 {
     background-color: #a1a1a1;
+}
+
+.contact-container {
+    width: 47%;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    background: linear-gradient(to bottom, transparent 50%, rgb(255, 255, 255) 50%);
+}
+
+.contact-content {
+    display: flex;
+    align-items: center;
+}
+
+.contact-texts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-text {
+    font-size: 18px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 100%;
+}
+
+.contact-text:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid white;
+    transform: translateY(-50%);
+}
+
+.nearby-markets-wrapper {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.nearby-markets-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nearby-markets-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nearby-markets-title .more-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.nearby-markets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.nearby-markets-content {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    width: calc(100% - 60px); /* 양쪽 버튼 크기 제외 */
+}
+
+.nearby-market-item {
+    flex: 0 0 auto;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: white;
+}
+
+.nearby-market-item img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
